@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 
-const Timer = () => {
-    const [countdown, setCountdown] = useState(90);
+const Timer = ({ initial }) => {
+    const [countdown, setCountdown] = useState(initial || 90);
+    const [counting, setCounting] = useState(true)
 
     useEffect(() => {
-        const timer = countdown > 0 && setInterval(() => setCountdown(countdown - 1), 1000);
-        return () => clearInterval(timer)
-    }, [countdown]);
+        let id;
+        if (counting) {
+            id = setInterval(handleTimer, 1000);
+        }
+        return () => clearInterval(id)
+    }, [countdown, counting]);
 
-    const stopTimer = () => {
-        setCountdown(0);
+    const handleTimer = () => {
+        if (countdown > 0) setCountdown(countdown -1);
+        else setCounting(false);
     }
+
+    const handlePause = () => {
+        setCounting((prev) => !prev);
+    }   
 
     // const timer = () => {
     //     setInterval(countDownTimer(), 1000)
@@ -23,7 +32,7 @@ const Timer = () => {
         <Card className="bg-dark text-light">
             <Card.Body>
                 <Card.Text>{countdown}</Card.Text>
-                <Button onClick={stopTimer}>Stop Timer</Button>
+                <Button onClick={handlePause}>{counting ? "Stop" : "Resume"}</Button>
             </Card.Body>
         </Card>
     </>

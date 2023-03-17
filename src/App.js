@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Countdown Timer Component</h1>
-      <Timer />
+      <Timer initial={50}/>
     </div>
   );
 }
