@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Countdown_Component/static/css/main.abd64e84.css",
+    "main.js": "/Countdown_Component/static/js/main.9b334d52.js",
+    "index.html": "/Countdown_Component/index.html",
+    "main.abd64e84.css.map": "/Countdown_Component/static/css/main.abd64e84.css.map",
+    "main.9b334d52.js.map": "/Countdown_Component/static/js/main.9b334d52.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd64e84.css",
+    "static/js/main.9b334d52.js"
+  ]
+}
